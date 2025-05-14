@@ -1,142 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>传承游戏平台-新人领189元</title>
-    <style>
-        :root {
-            --primary: #FF4E4E;
-            --dark: #1A1A1A;
-            --gold: #FFD700;
-        }
+<table class="reward-table">
+  <thead>
+    <tr>
+      <th>首次充值</th>
+      <th>基础赠送</th>
+      <th>专属奖励</th>
+      <th>总计奖励</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>¥100</td><td>¥28</td><td>¥30</td><td>¥58</td></tr>
+    <tr><td>¥500</td><td>¥58</td><td>¥50</td><td>¥108</td></tr>
+    <tr><td>¥1000</td><td>¥118</td><td>¥71</td><td class="highlight">¥189</td></tr>
+    <tr><td>¥5000</td><td>¥288</td><td>¥100</td><td>¥388</td></tr>
+    <tr><td>¥10000</td><td>¥588</td><td>¥200</td><td>¥788</td></tr>
+  </tbody>
+</table>
 
-        body {
-            margin: 0;
-            font-family: 'Alibaba PuHuiTi', sans-serif;
-            background: linear-gradient(45deg, var(--dark), #2a2a2a);
-            color: white;
-        }
+<div class="cta">
+  <p><strong>示例：</strong> 用户A首充¥1000，即得<strong class="highlight">¥189礼包</strong></p>
+  <button onclick="window.location.href='https://vip.3668cc.com/#/register?pid=6'">🎁 立即领取礼包</button>
+</div>
 
-        .banner {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
+<div class="faq">
+  <h3>常见问题</h3>
+  <p><strong>Q：</strong> 奖励怎么领取？<br />
+  <strong>A：</strong> 注册并首充后，奖励联系客服领取。</p>
+  <p><strong>Q：</strong> 有限制游戏种类吗？<br />
+  <strong>A：</strong> 没有限制，全平台游戏通用。</p>
+  <p><strong>Q：</strong> 奖励能不能提现？<br />
+  <strong>A：</strong> 完成一倍流水后可提现或自由使用。</p>
+</div>
 
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cta-button {
-            background: var(--primary);
-            padding: 12px 30px;
-            border-radius: 25px;
-            animation: breath 1.5s infinite;
-            border: 2px solid var(--gold);
-            cursor: pointer;
-        }
-
-        .tier-container {
-            display: flex;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-snap-type: x mandatory;
-        }
-
-        .tier-card {
-            min-width: 280px;
-            background: rgba(0,0,0,0.5);
-            margin: 0 15px;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            scroll-snap-align: start;
-        }
-
-        @keyframes breath {
-            0% { box-shadow: 0 0 10px var(--primary); }
-            50% { box-shadow: 0 0 20px var(--primary); }
-            100% { box-shadow: 0 0 10px var(--primary); }
-        }
-
-        @media (max-width: 768px) {
-            .tier-card {
-                min-width: 85vw;
-                margin: 0 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- 首屏 -->
-    <section class="banner">
-        <div class="header">
-            <img src="logo.png" alt="logo" style="height: 40px;">
-            <div class="cta-button" onclick="showRegister()">注册领¥189</div>
-        </div>
-        <h1 style="position: relative; text-align: center; margin-top: 30vh;">
-            立即领取<br>
-            <span style="font-size: 2.5em; text-shadow: 0 0 10px var(--gold);">189元</span>
-        </h1>
-    </section>
-
-    <!-- 充值返利 -->
-    <section style="padding: 40px 20px;">
-        <h2 style="text-align: center; margin-bottom: 30px;">首充加赠 最高立得¥788</h2>
-        <div class="tier-container">
-            <div class="tier-card">
-                <h3>¥100 档位</h3>
-                <p>基础赠送 ¥28 + 专属 ¥30</p>
-                <p style="color: var(--gold); font-size: 1.2em;">总计 ¥58</p>
-            </div>
-            <div class="tier-card">
-                <h3>¥1000 档位</h3>
-                <p>基础赠送 ¥118 + 专属 ¥71</p>
-                <p style="color: var(--gold); font-size: 1.2em;">总计 ¥189</p>
-            </div>
-            <!-- 其他档位... -->
-        </div>
-    </section>
-
-    <!-- 新增游戏展示区 -->
-    <section style="padding: 40px 20px;">
-        <h2 style="text-align: center; margin-bottom: 30px;">热门游戏推荐</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
-            <div class="game-card">
-                <img src="game1.jpg" alt="游戏1" style="width:100%; border-radius: 10px;">
-                <p style="text-align: center;">传奇之战</p>
-            </div>
-            <!-- 更多游戏... -->
-        </div>
-    </section>
-
-    <script>
-        // 注册按钮点击处理
-        function showRegister() {
-            // 这里可添加注册弹窗逻辑
-            alert('即将跳转到注册页面...');
-            // window.location.href = '/register';
-        }
-
-        // 初始化滚动效果
-        document.querySelector('.tier-container').addEventListener('scroll', (e) => {
-            const cards = document.querySelectorAll('.tier-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                if(rect.left >= 0 && rect.right <= window.innerWidth) {
-                    card.style.transform = 'scale(1.05)';
-                } else {
-                    card.style.transform = 'scale(1)';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+<div class="footer">
+  传承体育 © 2025 ｜ 客服支持 ｜ 合法合规运营
+</div>
