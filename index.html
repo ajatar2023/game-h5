@@ -8,8 +8,8 @@
     body {
       margin: 0;
       font-family: 'PingFang SC', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
+      background: #e0f7ff;
+      color: #004a7c;
       line-height: 1.6;
     }
     .container {
@@ -18,10 +18,12 @@
       margin: auto;
     }
     .banner {
-      background: linear-gradient(145deg, #ff0036, #ff7b00);
+      background: linear-gradient(145deg, #4fc3f7, #0288d1);
       padding: 40px 20px;
       text-align: center;
       border-radius: 12px;
+      color: white;
+      animation: fadeInDown 1s ease-out;
     }
     .banner h1 {
       font-size: 26px;
@@ -34,14 +36,15 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
+      animation: fadeInUp 1s ease-out;
     }
     .reward-table th, .reward-table td {
-      border: 1px solid #444;
+      border: 1px solid #90caf9;
       padding: 10px;
       text-align: center;
     }
     .highlight {
-      color: #ffdf00;
+      color: #ff6f00;
       font-weight: bold;
     }
     .cta {
@@ -53,13 +56,18 @@
       font-size: 18px;
       border: none;
       border-radius: 8px;
-      background: #ff0036;
+      background: #0288d1;
       color: #fff;
       cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s ease;
+    }
+    .cta button:hover {
+      transform: scale(1.05);
     }
     .faq {
       margin-top: 40px;
-      background: #111;
+      background: #b3e5fc;
       padding: 20px;
       border-radius: 10px;
     }
@@ -69,8 +77,16 @@
     .footer {
       text-align: center;
       font-size: 14px;
-      color: #888;
+      color: #0077b6;
       margin-top: 50px;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -102,6 +118,9 @@
     <div class="cta">
       <p><strong>示例：</strong> 用户A首充¥1000，即得<strong class="highlight">¥189礼包</strong></p>
       <button onclick="window.location.href='https://your-game-domain.com/register'">🎁 立即领取礼包</button>
+      <br/>
+      <button onclick="window.location.href='https://your-game-domain.com/download/android'">📲 安卓下载</button>
+      <button onclick="window.location.href='https://your-game-domain.com/download/ios'">🍎 iOS下载</button>
     </div>
 
     <div class="faq">
