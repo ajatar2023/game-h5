@@ -2,177 +2,255 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>传承体育平台 - 注册赠礼189元</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>传承体育 - 绿茵豪礼注册赠金</title>
   <style>
-    body {
+    :root {
+      --sky-blue: #87CEEB;
+      --stadium-green: #2d5a27;
+      --accent-gold: #FFD700;
+      --text-white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'PingFang SC', sans-serif;
-      background: #f5faff;
-      color: #222;
+    }
+
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: var(--text-white);
       line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 100vh;
+      background: 
+        linear-gradient(
+          to bottom,
+          rgba(135, 206, 235, 0.6) 0%,
+          rgba(135, 206, 235, 0.2) 30%,
+          rgba(45, 90, 39, 0.8) 100%
+        ),
+        url('https://images.unsplash.com/photo-1552667466-07770ae110d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center 30%;
+      position: relative;
     }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
     .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
     }
-    .banner {
-      background: linear-gradient(145deg, #63b3ed, #4299e1);
-      padding: 40px 20px;
-      text-align: center;
+
+    /* 动态天空效果 */
+    @keyframes sky-animation {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    /* 球场横幅 */
+    .stadium-header {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
       border-radius: 12px;
-      animation: float 2s ease-in-out infinite;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+
+    .stadium-header::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 120%;
+      background: 
+        linear-gradient(
+          45deg,
+          transparent 48%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 52%
+        ),
+        radial-gradient(
+          circle at 70% 30%,
+          rgba(255, 255, 255, 0.1) 15%,
+          transparent 20%
+        );
+      transform: translate(-50%, -50%);
+      animation: sky-animation 20s infinite linear;
     }
-    .banner h1 {
-      font-size: 28px;
-      font-weight: bold;
-      margin: 0 0 10px;
-      color: #fff;
+
+    .header-title {
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
     }
-    .banner p {
-      font-size: 18px;
-      color: #e3f2fd;
+
+    /* 数据看板 */
+    .stats-board {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
-    .reward-table {
+
+    table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
-      background: #ffffff;
-      border-radius: 10px;
+    }
+
+    th {
+      background: rgba(255, 215, 0, 0.1);
+      padding: 1.2rem;
+      border-bottom: 2px solid var(--accent-gold);
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    td:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      height: 60%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%);
+    }
+
+    /* 动态按钮 */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(
+        145deg,
+        rgba(255, 215, 0, 0.9),
+        rgba(255, 165, 0, 0.9)
+      );
+      color: #2d5a27;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .reward-table th, .reward-table td {
-      border: 1px solid #e0f2ff;
-      padding: 12px;
-      text-align: center;
-      font-weight: 500;
+
+    .cta-button::before {
+      content: '⚽';
+      margin-right: 1rem;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+      animation: ball-spin 2s infinite linear;
     }
-    .highlight {
-      color: #2b6cb0;
-      font-weight: bold;
-      font-size: 18px;
+
+    @keyframes ball-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
-    .cta {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .cta p {
-      font-size: 16px;
-    }
-    .cta button {
-      padding: 15px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
+
+    /* 常见问题模块 */
+    .faq-section {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
       border-radius: 8px;
-      background: #3182ce;
-      color: #fff;
-      cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
+      margin: 2rem 0;
+      backdrop-filter: blur(5px);
     }
-    .cta button:hover {
-      transform: scale(1.05);
-      background: #2b6cb0;
-    }
-    .faq {
-      margin-top: 40px;
-      background: #ebf8ff;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .faq h3 {
-      margin-top: 0;
-      color: #2c5282;
-    }
-    .faq p {
-      font-size: 15px;
-    }
-    .footer {
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      margin-top: 50px;
-    }
-    .counter {
-      font-weight: bold;
-      color: #2b6cb0;
-      font-size: 22px;
+
+    /* 响应式优化 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      td, th {
+        padding: 0.8rem;
+        font-size: 14px;
+      }
+      
+      .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="banner">
-      <h1>🎉 注册即送189元礼包！</h1>
-      <p>首充享超值奖励，畅玩全平台游戏！</p>
+    <div class="stadium-header">
+      <h1 class="header-title">🏟️ 注册即送189元彩金！！</h1>
+      <p style="text-align: center; margin-top: 1rem;">首充最高可得¥788彩金</p>
     </div>
 
-    <table class="reward-table">
-      <thead>
-        <tr>
-          <th>首次充值</th>
-          <th>基础赠送</th>
-          <th>专属奖励</th>
-          <th>总计奖励</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>¥100</td><td>¥28</td><td>¥30</td><td>¥58</td></tr>
-        <tr><td>¥500</td><td>¥58</td><td>¥50</td><td>¥108</td></tr>
-        <tr><td>¥1000</td><td>¥118</td><td>¥71</td><td class="highlight counter" data-count="189">¥0</td></tr>
-        <tr><td>¥5000</td><td>¥288</td><td>¥100</td><td>¥388</td></tr>
-        <tr><td>¥10000</td><td>¥588</td><td>¥200</td><td>¥788</td></tr>
-      </tbody>
-    </table>
-
-    <div class="cta">
-      <p><strong>示例：</strong> 用户A首充¥1000，即得 <span class="highlight">¥189礼包</span></p>
-      <button onclick="window.location.href='https://your-game-domain.com/register'">🎁 立即领取礼包</button>
+    <div class="stats-board">
+      <table>
+        <thead>
+          <tr>
+            <th>首充金额</th>
+            <th>基础赠金</th>
+            <th>专属奖励</th>
+            <th>总奖励</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>¥100</td><td>¥28</td><td>¥30</td><td>¥58</td></tr>
+          <tr><td>¥500</td><td>¥58</td><td>¥50</td><td>¥108</td></tr>
+          <tr><td style="color:var(--accent-gold);">¥1000</td><td>¥118</td><td>¥71</td><td style="color:var(--accent-gold);font-weight:700;">¥189</td></tr>
+          <tr><td>¥5000</td><td>¥288</td><td>¥100</td><td>¥388</td></tr>
+          <tr><td>¥10000</td><td>¥588</td><td>¥200</td><td>¥788</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="faq">
-      <h3>常见问题</h3>
-      <p><strong>Q：</strong> 奖励怎么领取？<br />
-      <strong>A：</strong> 注册并首充后，联系客服领取。</p>
-      <p><strong>Q：</strong> 有限制游戏种类吗？<br />
-      <strong>A：</strong> 没有限制，全平台游戏通用。</p>
-      <p><strong>Q：</strong> 奖励能不能提现？<br />
-      <strong>A：</strong> 完成一倍流水后可提现或自由使用。</p>
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://vip.3668cc.com/#/register?pid=6" class="cta-button">立即领取礼包</a>
+      <p style="margin-top: 1.5rem; opacity: 0.9;">示例：首充¥1000即得<span style="color:var(--accent-gold);">¥189礼包</span></p>
     </div>
 
-    <div class="footer">
-      传承体育 © 2025 ｜ 客服支持 ｜ 合法合规运营
+    <div class="faq-section">
+      <h3 style="color: var(--accent-gold); margin-bottom: 1.5rem;">🏅 常见问题</h3>
+      <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+        <p><strong>⚽ Q：</strong>奖励怎么领取？？</p>
+        <p><strong>✅ A：</strong>注册并首充后，联系客服领取。</p>
+      </div>
+      <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+        <p><strong>🏆 Q：</strong>有限制游戏种类吗？</p>
+        <p><strong>✅ A：</strong>没有限制，全平台游戏通用。</p>
+      </div>
+      <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 6px;">
+        <p><strong>⏱️ Q：</strong>奖励能不能提现？</p>
+        <p><strong>✅ A：</strong>完成一倍流水后可提现或自由使用。</p>
+      </div>
     </div>
   </div>
-
-  <script>
-    // 数字滚动动画
-    document.addEventListener('DOMContentLoaded', () => {
-      const counters = document.querySelectorAll('.counter');
-      counters.forEach(counter => {
-        const target = +counter.dataset.count;
-        let count = 0;
-        const step = Math.ceil(target / 40);
-
-        const update = () => {
-          count += step;
-          if (count >= target) {
-            counter.textContent = `¥${target}`;
-          } else {
-            counter.textContent = `¥${count}`;
-            requestAnimationFrame(update);
-          }
-        };
-
-        update();
-      });
-    });
-  </script>
 </body>
 </html>
