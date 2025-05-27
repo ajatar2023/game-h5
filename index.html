@@ -1,176 +1,350 @@
+
+
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>传承体育 - 专属注册礼</title>
-  <style>
-    :root {
-      --sky-blue: #87CEEB;
-      --stadium-green: #2d5a27;
-      --accent-gold: #FFD700;
-      --text-white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'PingFang SC', sans-serif;
-      color: var(--text-white);
-      line-height: 1.4;
-      min-height: 100vh;
-      background: 
-        linear-gradient(
-          to bottom,
-          rgba(135, 206, 235, 0.6) 0%,
-          rgba(135, 206, 235, 0.2) 30%,
-          rgba(45, 90, 39, 0.8) 100%
-        ),
-        url('https://images.unsplash.com/photo-1552667466-07770ae110d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .compact-container {
-      padding: 3vh 4vw;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* 智能缩放标题 */
-    .responsive-header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1.5vh 3vw;
-      border-radius: 8px;
-      margin-bottom: 2vh;
-      text-align: center;
-    }
-
-    .responsive-header h1 {
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-      margin: 0;
-    }
-
-    /* 自适应表格容器 */
-    .scroll-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: 2vh 0;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 6px;
-    }
-
-    .compact-table {
-      width: 100%;
-      min-width: 500px;
-      border-collapse: collapse;
-    }
-
-    .compact-table th,
-    .compact-table td {
-      padding: 1.2vh 1.5vw;
-      font-size: clamp(0.8rem, 2vw, 1rem);
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .compact-table th {
-      background: rgba(255,215,0,0.1);
-    }
-
-    /* 紧凑按钮 */
-    .dense-button {
-      display: block;
-      width: fit-content;
-      margin: 2vh auto;
-      padding: 1.2vh 4vw;
-      background: linear-gradient(145deg, rgba(255,215,0,0.9), rgba(255,165,0,0.9));
-      color: var(--stadium-green);
-      border-radius: 25px;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.5);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    /* 紧凑问答模块 */
-    .compact-faq {
-      background: rgba(0,0,0,0.5);
-      padding: 2vh 3vw;
-      margin: 2vh 0;
-      border-radius: 6px;
-    }
-
-    .compact-faq div {
-      margin: 1.5vh 0;
-      padding: 1.5vh 3vw;
-      background: rgba(255,255,255,0.05);
-      border-radius: 4px;
-    }
-
-    .compact-faq p {
-      font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-      line-height: 1.3;
-    }
-
-    @media (orientation: portrait) {
-      .compact-container {
-        padding: 2vh 3vw;
-      }
-      
-      .dense-button {
-        width: 80%;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新人专属福利</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #1a0000 0%, #3d0000 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .gold-text {
+            color: #FFD700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        .red-bg {
+            background: linear-gradient(135deg, #e60000 0%, #ff3019 100%);
+        }
+        
+        .gold-bg {
+            background: linear-gradient(135deg, #ffd700 0%, #ffcc00 100%);
+        }
+        
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .coin {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(#ffd700, #e6b800);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.8;
+            box-shadow: 0 0 10px #ffd700;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px #fff;
+            opacity: 0;
+            z-index: -1;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            margin: 20px 0;
+        }
+        
+        .highlight-box {
+            border: 2px solid #ffd700;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-box:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        .number-highlight {
+            display: inline-block;
+            animation: numberPulse 2s infinite;
+        }
+        
+        @keyframes numberPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+                color: #ffd700;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
-<body>
-  <div class="compact-container">
-    <div class="responsive-header">
-      <h1>🏟️ 注册即送189元彩金！！</h1>
+<body class="min-h-screen py-8 px-4">
+    <div id="coins-container"></div>
+    <div id="fireworks-container"></div>
+    
+    <div class="max-w-md mx-auto bg-black bg-opacity-60 rounded-xl shadow-2xl overflow-hidden p-6 relative">
+        <!-- Header -->
+        <div class="text-center mb-6">
+            <div class="flex justify-center">
+                <svg class="w-16 h-16 floating" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 12V22H4V12" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 7H2V12H22V7Z" fill="#e60000" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22V7" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" fill="#FFD700" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" fill="#FFD700" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-black mt-2">
+                <span class="gold-text">✨ 欢迎加入！</span>
+            </h1>
+            <h2 class="text-2xl font-bold gold-text">新人专属福利大放送 ✨</h2>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Main Offer -->
+        <div class="highlight-box p-4 mb-6 text-center">
+            <div class="text-xl font-bold">🎁 注册即送</div>
+            <div class="text-4xl font-black gold-text my-2">
+                <span class="number-highlight">28</span> 元彩金！
+            </div>
+            <p class="text-sm">✅ 完成<span class="text-white font-bold">首充并达到流水要求</span>即可提现！</p>
+        </div>
+        
+        <!-- First Deposit Bonus -->
+        <div class="mb-6">
+            <h3 class="text-xl font-bold gold-text flex items-center">
+                <span class="bg-red-600 rounded-full w-7 h-7 inline-flex items-center justify-center mr-2">1</span>
+                首充福利
+            </h3>
+            <div class="highlight-box p-4 mt-2">
+                <div class="flex items-center">
+                    <div class="text-4xl mr-3">🔥</div>
+                    <div>
+                        <p>首充满 <span class="font-bold gold-text"><span class="number-highlight">100</span>元</span></p>
+                        <p>再送 <span class="font-bold gold-text"><span class="number-highlight">80</span>元彩金</span></p>
+                    </div>
+                </div>
+                <div class="mt-2 text-sm">
+                    <p>🔄 提现需完成 <span class="font-bold text-white">（本金 + 彩金）×8 倍流水</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Deposit Bonus -->
+        <div class="mb-6">
+            <h3 class="text-xl font-bold gold-text flex items-center">
+                <span class="bg-red-600 rounded-full w-7 h-7 inline-flex items-center justify-center mr-2">2</span>
+                充值加赠（仅限一次）
+            </h3>
+            <div class="highlight-box p-4 mt-2">
+                <div class="flex items-center mb-3">
+                    <div class="text-2xl mr-3">2️⃣</div>
+                    <div>
+                        <p>第二次充值满 <span class="font-bold gold-text"><span class="number-highlight">500</span>元</span></p>
+                        <p>送 <span class="font-bold gold-text"><span class="number-highlight">128</span>元彩金</span></p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="text-2xl mr-3">3️⃣</div>
+                    <div>
+                        <p>第三次充值满 <span class="font-bold gold-text"><span class="number-highlight">1000</span>元</span></p>
+                        <p>送 <span class="font-bold gold-text"><span class="number-highlight">188</span>元彩金</span></p>
+                    </div>
+                </div>
+                <div class="mt-2 text-sm">
+                    <p>📌 所有赠送彩金需完成 <span class="font-bold text-white">8倍流水</span> 才可提现</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- No Bonus Option -->
+        <div class="mb-8">
+            <h3 class="text-xl font-bold gold-text flex items-center">
+                <span class="bg-red-600 rounded-full w-7 h-7 inline-flex items-center justify-center mr-2">3</span>
+                不领取彩金福利
+            </h3>
+            <div class="highlight-box p-4 mt-2">
+                <div class="flex items-center">
+                    <div class="text-4xl mr-3">🔓</div>
+                    <div>
+                        <p>不领取彩金的新用户</p>
+                        <p>➡️ 仅需 <span class="font-bold gold-text">1倍流水</span> 即可申请提现！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <div class="flex justify-center">
+        <button 
+            class="cta-button gold-bg text-red-800 font-bold py-3 px-6 rounded-full text-lg w-full max-w-xs"
+            id="registerButton">
+            🔗 立即注册领彩金
+        </button>
     </div>
 
-    <div class="scroll-wrapper">
-      <table class="compact-table">
-        <thead>
-          <tr>
-            <th>首充金额</th>
-            <th>充值彩金</th>
-            <th>注册彩金</th>
-            <th>总彩金</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>¥100</td><td>¥28</td><td>¥20</td><td>¥48</td></tr>
-          <tr><td>¥500</td><td>¥58</td><td>¥50</td><td>¥108</td></tr>
-          <tr><td style="color:var(--accent-gold);">¥1000</td><td>¥118</td><td>¥71</td><td style="color:var(--accent-gold);">¥189</td></tr>
-          <tr><td>¥5000</td><td>¥288</td><td>¥100</td><td>¥388</td></tr>
-          <tr><td>¥10000</td><td>¥588</td><td>¥200</td><td>¥788</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <script>
+        // 初始化动画代码保持不变...
 
-    <a href="https://vip.3668cc.com/#/register?pid=6r" class="dense-button">立即领取礼包</a>
+        // 注册按钮点击处理
+        document.getElementById('registerButton').addEventListener('click', function(e) {
+            // 触发烟花动画
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createFirework(), i * 100);
+            }
 
-    <div class="compact-faq">
-      <div>
-        <p><strong>⚽ Q：</strong>如何获得奖励？</p>
-        <p><strong>✅ A：</strong>注册并首充后，联系客服领取。</p>
-      </div>
-      <div>
-        <p><strong>🏆 Q：</strong>有限制游戏种类吗？</p>
-        <p><strong>✅ A：</strong>没有限制，全平台游戏通用。</p>
-      </div>
-      <div>
-        <p><strong>⏱️ Q：</strong>奖励能不能提现？</p>
-        <p><strong>✅ A：</strong>完成一倍流水后可提现或自由使用。</p>
-      </div>
-    </div>
-  </div>
+            // 添加按钮点击反馈
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+
+            // 500ms后跳转（保证动画可见）
+            setTimeout(() => {
+                window.location.href = 'https://vip.3668cc.com/#/register?pid=6r'; // 替换为实际链接
+            }, 500);
+        });
+
+        // 保持其他动画初始化代码不变...
+    </script>
 </body>
+</html>
+    
+    <script>
+        // Create floating coins animation
+        function createCoins() {
+            const container = document.getElementById('coins-container');
+            const containerWidth = window.innerWidth;
+            const containerHeight = window.innerHeight;
+            
+            for (let i = 0; i < 15; i++) {
+                const coin = document.createElement('div');
+                coin.classList.add('coin');
+                
+                // Random position
+                const left = Math.random() * containerWidth;
+                const top = Math.random() * containerHeight;
+                
+                coin.style.left = `${left}px`;
+                coin.style.top = `${top}px`;
+                
+                // Random animation
+                const animDuration = 5 + Math.random() * 10;
+                const animDelay = Math.random() * 5;
+                
+                coin.style.animation = `float ${animDuration}s ease-in-out ${animDelay}s infinite`;
+                
+                container.appendChild(coin);
+            }
+        }
+        
+        // Create firework animation
+        function createFirework() {
+            const container = document.getElementById('fireworks-container');
+            const containerWidth = window.innerWidth;
+            const containerHeight = window.innerHeight;
+            
+            // Create a firework at random position
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            
+            const left = Math.random() * containerWidth;
+            const top = Math.random() * (containerHeight * 0.7);
+            
+            firework.style.left = `${left}px`;
+            firework.style.top = `${top}px`;
+            
+            // Random color
+            const hue = Math.floor(Math.random() * 360);
+            firework.style.boxShadow = `0 0 10px 2px hsl(${hue}, 100%, 50%)`;
+            
+            container.appendChild(firework);
+            
+            // Animate the firework
+            setTimeout(() => {
+                firework.style.transition = 'all 0.5s ease-out';
+                firework.style.opacity = '1';
+                firework.style.transform = 'scale(20)';
+                
+                setTimeout(() => {
+                    firework.style.opacity = '0';
+                    setTimeout(() => {
+                        container.removeChild(firework);
+                    }, 500);
+                }, 500);
+            }, 10);
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            createCoins();
+            
+            // Create fireworks periodically
+            setInterval(createFirework, 1000);
+            
+            // Add click event to buttons
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Create multiple fireworks on click
+                    for (let i = 0; i < 5; i++) {
+                        setTimeout(() => {
+                            createFirework();
+                        }, i * 100);
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9466dcc894de4aba',t:'MTc0ODM2MzA2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
